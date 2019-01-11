@@ -1,0 +1,282 @@
+# global
+# ===========================================================================
+[global]
+skipdir = [
+  'RCS', 'CVS', 'SCCS', '.svn', '.git', '.hg', '.bzr', '.venv', 'node_modules'
+]
+
+# tool
+# ===========================================================================
+# The Platinum Searcher
+# ---------------------------------------------------------------------------
+[[tool]]
+name = 'pt'
+command = 'pt'
+symbol = 'Pt'
+
+description.fullname = 'The Platinum Searcher'
+description.url = 'https://github.com/monochromegane/the_platinum_searcher'
+
+# opt
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+opt.short = '-'
+opt.full = '--'
+opt.combine = false
+# opt.grepformat = ''
+
+# set
+[tool.opt.set]
+base = ['--nocolor', '--nogroup']
+search = ['--column', '--output-encode', 'none']
+filelist = ['--files-with-matches']
+
+# variant
+[tool.opt.variant]
+case.ignore = ['--ignore-case']
+case.smart = ['--smart-case']
+
+word.pattern = []
+word.regex = ['-e']
+
+target.hidden = ['--hidden']
+target.notvcs = ['--skip-vcs-ignores']
+
+
+# The Silver Searcher
+# ---------------------------------------------------------------------------
+[[tool]]
+name = 'ag'
+command = 'ag'
+symbol = 'Ag'
+
+description.fullname = 'The Silver Searcher'
+description.url = 'https://github.com/ggreer/the_silver_searcher'
+
+# opt
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+opt.short = '-'
+opt.full = '--'
+opt.combine = false
+# opt.grepformat = ''
+
+# set
+[tool.opt.set]
+base = ['--nocolor', '--nogroup', '--column']
+search = ['--vimgrep']
+filelist = ['--files-with-matches']
+
+# variant
+[tool.opt.variant]
+case.ignore = ['--ignore-case']
+case.smart = ['--smart-case']
+
+word.pattern = ['--literal']
+word.regex = []
+
+target.hidden = ['--hidden']
+target.notvcs = ['--skip-vcs-ignores']
+
+
+# ripgrep
+# ---------------------------------------------------------------------------
+[[tool]]
+name = 'ripgrep'
+command = 'rg'
+symbol = 'RipGrep'
+
+description.fullname = 'ripgrep recursively searches directories for a regex pattern'
+description.url = 'https://github.com/BurntSushi/ripgrep'
+
+# opt
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+opt.short = '-'
+opt.full = '--'
+opt.combine = false
+# opt.grepformat = ''
+
+# set
+[tool.opt.set]
+base = []
+windows = ['--crlf']
+search = ['--vimgrep']
+filelist = ['--files-with-matches']
+
+# variant
+[tool.opt.variant]
+case.ignore = ['--ignore-case']
+case.smart = ['--smart-case']
+
+word.pattern = ['--fixed-strings']
+word.regex = ['--regexp']
+
+target.hidden = ['--hidden']
+target.notvcs = ['--no-ignore-vcs']
+
+
+# grep
+# ---------------------------------------------------------------------------
+[[tool]]
+name = 'grep'
+command = 'grep'
+symbol = 'Grep'
+
+description.fullname = 'GNU Grep'
+description.url = 'https://www.gnu.org/software/grep/'
+
+# opt
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+opt.short = '-'
+opt.full = '--'
+opt.combine = false
+# opt.grepformat = ''
+
+# set
+[tool.opt.set]
+base = ['--no-messages', '--recursive']
+search = ['--line-number', '--binary-files=without-match']
+filelist = ['--files-with-matches']
+
+# variant
+[tool.opt.variant]
+case.ignore = ['--ignore-case']
+
+word.pattern = ['--fixed-strings']
+word.regex = ['--extended-regexp']
+
+
+# sift
+# ---------------------------------------------------------------------------
+[[tool]]
+name = 'sift'
+command = 'sift'
+symbol = 'Sift'
+
+description.fullname = 'sift grep on steroids A fast and powerful alternative to grep.'
+description.url = 'https://sift-tool.org/'
+
+# opt
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+opt.short = '-'
+opt.full = '--'
+opt.combine = false
+# opt.grepformat = ''
+
+# set
+[tool.opt.set]
+base = ['--no-color', '--no-group']
+search = ['--filename', '--line-number', '--column', '--binary-skip']
+filelist = ['--targets','--files-with-matches']
+
+# variant
+[tool.opt.variant]
+case.ignore = ['--ignore-case']
+case.smart = ['--smart-case']
+
+word.pattern = ['--literal']
+word.regex = ['--regexp']
+
+# target.hidden = ['--hidden']
+# target.notvcs = ['--git' is ignore .git/.gitignore files]
+
+
+# jvgrep
+# ---------------------------------------------------------------------------
+[[tool]]
+name = 'jvgrep'
+command = 'jvgrep'
+symbol = 'JVGrep'
+
+description.fullname = 'grep for japanese vimmer'
+description.url = 'https://github.com/mattn/jvgrep'
+
+# opt
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+opt.short = '-'
+opt.full = '--'
+opt.combine = false
+# opt.grepformat = ''
+
+# set
+[tool.opt.set]
+base = ['--no-color', '-R', '-8', '-r']
+search = ['-n', '-C', '-I']
+filelist = ['-l']
+
+# variant
+[tool.opt.variant]
+case.ignore = ['-i']
+
+word.pattern = ['-F']
+word.regex = ['-G']
+
+# target.hidden = ['--hidden']
+# target.notvcs = ['--git' is ignore .git/.gitignore files]
+
+
+# findstr(windows)
+# ---------------------------------------------------------------------------
+[[tool]]
+name = 'findstr'
+command = 'findstr'
+symbol = 'FindStr'
+
+description.fullname = 'findstr'
+description.url = 'https://docs.microsoft.com/ja-jp/windows-server/administration/windows-commands/findstr'
+
+# opt
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+opt.short = '/'
+opt.full = '/'
+opt.combine = false
+# opt.grepformat = ''
+
+# set
+[tool.opt.set]
+base = []
+search = ['/S', '/N','/O']
+filelist = ['/M']
+
+# variant
+[tool.opt.variant]
+case.ignore = ['/I']
+
+word.pattern = ['/L']
+word.regex = ['/R']
+
+# target.hidden = ['--hidden']
+# target.notvcs = ['--git' is ignore .git/.gitignore files]
+
+
+# ack
+# ---------------------------------------------------------------------------
+[[tool]]
+name = 'ack'
+command = 'ack'
+symbol = 'Ack'
+
+description.fullname = 'Beyond grep: ack'
+description.url = 'https://beyondgrep.com/'
+
+# opt
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+opt.short = '-'
+opt.full = '--'
+opt.combine = false
+# grepformat = ''
+
+# set
+[tool.opt.set]
+base = ['-s', '--nopager', '--nogroup', '--nocolor', '--nounderline', '--recurse']
+search = ['--column']
+filelist = ['-g', '--files-with-matches']
+
+# variant
+[tool.opt.variant]
+case.ignore = ['--ignore-case']
+case.smart = ['--smart-case']
+
+word.pattern = ['--literal']
+# word.regex = []
+
+target.hidden = []
+target.notvcs = []

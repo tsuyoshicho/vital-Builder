@@ -1,0 +1,44 @@
+grep concept memo
+
+
+Builder class
+
+- get grep target specific builder instance
+  Grep.get() default or highest priority item
+  or
+  Grep.get('pt') target specific if nothing error
+  Grep.get(['pt', 'ag', 'grep']) priority list set if nothing error
+
+- support module info
+  Grep.info()
+
+Grep builder instance
+
+class name see other vital object
+
+- basic API
+  grep target item info get
+  builder.info()
+  builder.command()
+  builder.name()
+  builder.grepfmt()
+  ...
+
+- build API
+  grep target item build
+  builder.build({})
+  opt need
+  - grepprg set string?
+    specific other API
+  - target file/dir?
+    support special code if need
+
+option
+- case type sensitive/insensitive/smart (fallback/error?)
+- search word word/regex
+- skip vcs
+- skip hidden
+- target files?
+  target dir?
+  current dir?
+
